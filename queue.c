@@ -12,7 +12,7 @@ void enqueue(Queue *q, int item)
 {
     if ((q->tail + 1) % (Q_SIZE + 1) == q->head)
     {
-        printf("Queue is full %d = %d %d\n", q->tail + 1, Q_SIZE + 1, q->head);
+        printf("Queue is full\n");
         return;
     }
 
@@ -55,6 +55,10 @@ int main()
     printf("Tail = %d\n", my_q.tail);
     enqueue(&my_q, 6);
     printf("Tail = %d\n", my_q.tail);
+    enqueue(&my_q, 7);
+    printf("Tail = %d\n", my_q.tail);
+    enqueue(&my_q, 8);
+    printf("Tail = %d\n", my_q.tail);
 
     printf("\n\n");
     printf("beginning head = %d\n", my_q.head);
@@ -66,6 +70,20 @@ int main()
     printf("item = %d, head = %d\n", item, my_q.head);
     item = dequeue(&my_q);
     printf("item = %d, head = %d\n", item, my_q.head);
+    item = dequeue(&my_q);
+    printf("item = %d, head = %d\n", item, my_q.head);
+    item = dequeue(&my_q);
+    printf("item = %d, head = %d\n", item, my_q.head);
+    item = dequeue(&my_q);
+    printf("item = %d, head = %d\n", item, my_q.head);
+    item = dequeue(&my_q);
+    printf("item = %d, head = %d\n", item, my_q.head);
+
+    enqueue(&my_q, 11);
+    printf("Tail = %d\n", my_q.tail);
+    enqueue(&my_q, 22);
+    printf("Tail = %d\n", my_q.tail);
+
     item = dequeue(&my_q);
     printf("item = %d, head = %d\n", item, my_q.head);
     item = dequeue(&my_q);
