@@ -52,9 +52,6 @@ int main()
 
     item = pop(&my_stack);
     printf("%d\n", item);
-
-    item = pop(&my_stack);
-    printf("%d\n", item);
     item = pop(&my_stack);
     printf("%d\n", item);
     item = pop(&my_stack);

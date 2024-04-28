@@ -8,7 +8,6 @@ int is_balanced(char input[])
 
     top = 0;
     len = strlen(input);
-    printf("length = %d\n", len);
     for (i = 0; i < len; i++)
     {
         if (input[i] == '(')
@@ -18,7 +17,6 @@ int is_balanced(char input[])
         }
         else if (input[i] == ')')
         {
-            printf("%d index = %c", i, input[i]);
             if (top == 0)
             {
                 // stack empty
