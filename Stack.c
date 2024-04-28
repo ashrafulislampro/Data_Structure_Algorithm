@@ -10,6 +10,7 @@ typedef struct
 
 void push(Stack *s, int item)
 {
+
     if (s->top < STACK_MAX)
     {
         s->data[s->top] = item;
@@ -31,6 +32,7 @@ int pop(Stack *s)
     }
     else
     {
+
         s->top = s->top - 1;
         item = s->data[s->top];
     }
@@ -53,7 +55,8 @@ int main()
 
     item = pop(&my_stack);
     printf("%d\n", item);
-
+    item = pop(&my_stack);
+    printf("%d\n", item);
     item = pop(&my_stack);
     printf("%d\n\n", item);
 
