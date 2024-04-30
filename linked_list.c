@@ -63,9 +63,38 @@ void print_linked_list(Node *head)
     printf("\n");
 };
 
+int count(Node *head)
+{
+    int counter = 0;
+    Node *current_node = head;
+    while (current_node != NULL)
+    {
+        counter++;
+        current_node = current_node->next;
+    }
+    return counter;
+}
+
+Node *search(Node *head, int item, int *position)
+{
+    *position = 0;
+    Node *current_node = head;
+    while (current_node != NULL)
+    {
+        (*position)++;
+        if (current_node->data == item)
+        {
+            return current_node;
+        }
+        current_node = current_node->next;
+    }
+    return NULL; // Item not found
+}
+
 int main()
 {
-    Node *n, *head;
+    int position;
+    Node *n, *search_item, *head;
     n = create_node(10, NULL);
     head = n;
     print_linked_list(head);
@@ -75,6 +104,20 @@ int main()
 
     head = append(head, 30);
     print_linked_list(head);
+
+    int result = count(head);
+    printf("Total Node = %d\n", result);
+
+    search_item = search(head, 10, &position);
+    if (search_item != NULL)
+    {
+        printf("Search Item = %d\n", search_item->data);
+        printf("Position = %d\n", position);
+    }
+    else
+    {
+        printf("Item not found\n");
+    }
 
     return 0;
 }
