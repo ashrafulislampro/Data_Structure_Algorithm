@@ -67,25 +67,24 @@ Node *create_tree()
     return two;
 }
 
-void pre_order(Node *node)
+void post_order(Node *node)
 {
-    printf("%d ", node->data);
+
     if (node->left != NULL)
     {
-        pre_order(node->left);
+        post_order(node->left);
     }
     if (node->right != NULL)
     {
-        pre_order(node->right);
+        post_order(node->right);
     }
+    printf("%d ", node->data);
 }
-
-
 
 int main()
 {
     Node *root = create_tree();
-    pre_order(root);
+    post_order(root);
     printf("\n");
     return 0;
 }
