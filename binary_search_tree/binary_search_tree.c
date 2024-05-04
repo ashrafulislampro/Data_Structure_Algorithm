@@ -140,11 +140,58 @@ Node *in_order(Node *node)
     }
 }
 
+Node *bst_search(Node *root, int item)
+{
+    Node *node = root;
+    while (node != NULL)
+    {
+        if (node->data == item)
+        {
+            return node;
+        }
+        if (item < node->data)
+        {
+            node = node->left;
+        }
+        else
+        {
+            node = node->right;
+        }
+    }
+    return node;
+}
+
 int main()
 {
     Node *root = create_bst();
+
+    Node *node;
+
+    node = bst_search(root, 7);
+
+    if (node != NULL)
+    {
+        printf("%d\n", node->data);
+    }
+    else
+    {
+        printf("Node is not found\n");
+    }
+
+    node = bst_search(root, 8);
+    if (node != NULL)
+    {
+        printf("%d\n", node->data);
+    }
+    else
+    {
+        printf("Node is not found\n");
+    }
+    printf("\nIn Order Sub-tree\n");
     in_order(root);
+    printf("\nPre Order Sub-tree\n");
     pre_order(root);
+    printf("\nPost Order Sub-tree\n");
     post_order(root);
     printf("\n\n");
     return 0;
